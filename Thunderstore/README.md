@@ -25,7 +25,7 @@ difficulty=(playerfactor + minutesingame * timefactor) * stagefactor
 
 and this is this mod's scaling function
 ```
-playerfactor= 1 + 0.5*(playercount-1)
+playerfactor= 1 + 0.3*(playercount-1)
 stagefactor= (1+.025*(stagescompleted-1)) * stagescompleted *1.25
 
 difficulty= 1+(stagefactor*playerfactor*difficultyscaling)+1.25*difficultyscaling
