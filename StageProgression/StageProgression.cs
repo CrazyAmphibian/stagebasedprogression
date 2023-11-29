@@ -14,7 +14,7 @@ namespace StageProgression
 		public const string PluginGUID = PluginAuthor + "." + PluginName;
 		public const string PluginAuthor = "CrazyAmphibian";
 		public const string PluginName = "StageProgression";
-		public const string PluginVersion = "1.3.0";
+		public const string PluginVersion = "1.4.0";
 
 		public void Awake()
 		{
@@ -29,10 +29,11 @@ namespace StageProgression
 				float diffscaling = difficultyDef.scalingValue;
 				int stageclears = self.stageClearCount;
 				int playercount = self.participatingPlayerCount;
-				float coeff = 1f;
-				coeff += 1.25f*diffscaling*.5f/3f; //add an additional 1.25 blocks. this makes maps a bit harder when you first spawn to account for the difficulty never scaling up.
+				float coeff = 0f;
+				coeff += 2.25f*diffscaling*.5f/3f; //add an additional 1.25 blocks. this makes maps a bit harder when you first spawn to account for the difficulty never scaling up.
 
-				float playerfactor = (float)playercount * .5f + .5f; //increased player scaling from .3x to .5x per player.
+				float playerfactor = (float)playercount * .3f + .7f; //increased player scaling from .3x to .5x per player.
+				//nevermind. reverted that. makes multiplayer a bit hard.
 				//float stagefactor = (float)stageclears*1.5f;
 				float stagefactor = (1f+0.025f*((float)stageclears-1f))*(float)stageclears*1.25f; //for each stage after the first, add 2.5% to the difficulty.
 
@@ -43,7 +44,8 @@ namespace StageProgression
 				self.difficultyCoefficient = coeff;
 				self.compensatedDifficultyCoefficient = coeff;
 
-				self.ambientLevel = 1 + (coeff - playerfactor) / .33f;
+				//self.ambientLevel = 1 + (coeff - playerfactor) / .33f;
+				self.ambientLevel =  (coeff ) / .33f; //removed subtracting playerfactor.
 				int ambientLevelFloor = Mathf.FloorToInt(self.ambientLevel);
 
 				if (ambientLevelFloor != 0 && self.ambientLevelFloor > ambientLevelFloor) //check for ambient leveling up.
@@ -53,7 +55,7 @@ namespace StageProgression
 
 				self.ambientLevelFloor = ambientLevelFloor;
 
-				//Log.Debug("$$$$ = StageProgression calculated some shit::" + diffscaling.ToString() +"|"+ stageclears.ToString() + "|" + playercount.ToString());
+				// Log.Debug("$$$$ = StageProgression calculated some shit::" + coeff.ToString() +"|"+ stagefactor.ToString() + "|" + playerfactor.ToString());
 			};
 			
 		}
