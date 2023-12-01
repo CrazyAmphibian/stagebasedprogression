@@ -1,3 +1,6 @@
+## 1.4.1
+- fixed the mod logging every frame with data
+
 ## 1.4.0
 - fixed multiple players causing the ambient level to be negative
 - reduced multiplayer scaling to use vanilla values. +.3x, from +.5x
