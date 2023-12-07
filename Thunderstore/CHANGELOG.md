@@ -1,3 +1,9 @@
+## 1.5.0
+- fixed ambient level cap not being respected correctly.
+- the multiplayer playerfactor now applies to the initial difficulty.
+- makes it consistent with how vanilla scaling works.
+- increased exponential difficulty increase from 2.5% to 5%
+
 ## 1.4.1
 - fixed the mod logging every frame with data
 

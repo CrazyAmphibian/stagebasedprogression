@@ -1,6 +1,6 @@
 ﻿{
 	"name": "StageBasedProgression",
-	"version_number": "1.4.1",
+	"version_number": "1.5.0",
 	"website_url": "https://github.com/CrazyAmphibian/stagebasedprogression",
 	"description": "changes difficulty scaling to use stages completed instead of time",
 	"dependencies": [

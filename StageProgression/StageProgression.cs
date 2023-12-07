@@ -14,7 +14,7 @@ namespace StageProgression
 		public const string PluginGUID = PluginAuthor + "." + PluginName;
 		public const string PluginAuthor = "CrazyAmphibian";
 		public const string PluginName = "StageProgression";
-		public const string PluginVersion = "1.4.1";
+		public const string PluginVersion = "1.5.0";
 
 		public void Awake()
 		{
